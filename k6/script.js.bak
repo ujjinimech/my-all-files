@@ -1,0 +1,17 @@
+import http from 'k6/http';
+import { sleep } from 'k6';
+export const options = {
+  vus: 100,
+  duration: '60s',	
+  ext: {
+    loadimpact: {
+      projectID: 3587991,
+      // Test runs with the same name groups test runs together
+      name: "sqd-api"
+    }
+  }
+};
+export default function () {
+  http.get('http://192.168.1.175:8888');
+  sleep(1);
+}

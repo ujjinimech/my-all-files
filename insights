@@ -1,0 +1,63 @@
+https://superuser.com/questions/470949/how-do-i-create-a-1gb-random-file-in-linux
+
+
+create rabdom file
+
+       openssl rand -out sample.txt -base64 $(( 2**30 * 3/4 ))
+
+
+rsync --progress -avz -e 'ssh -v -i ./.ssh/new_keys' node@<ip_address>:~/ubuntu-16.04.1-server-amd64.iso ./Downloads/Ubuntu_Server.iso
+
+rsync --progress -avz -e 'ssh -v -i .ssh/remote.pub' ubuntu@100.26.20.62:insight2/ adrpoc.docx
+
+rsync -vuar host1:/var/www host2:/var/www
+
+rsync -avzh /root/rpmpkgs root@192.168.0.141:/root/
+
+##############################################################################
+rsync -avzhe 'ssh -v -i insight.pem' adrpoc.docx ubuntu@100.26.20.62:insight2/
+##############################################################################
+
+rsync -avzhe 'ssh -v -i insight.pem' ubuntu@34.224.6.7:sample.txt ubuntu@100.26.20.62:~/
+
+
+rsync -a ~/dir1 username@remote_host:destination_directory
+
+
+
+scp adrpoc.docx ubuntu@100.26.20.62:insight2/
+
+scp -r -i /Applications/XAMPP/htdocs/keypairfile.pem uploads/* ec2-user@publicdns:/var/www/html/uploads
+
+*/3 * * * * ./insight2/rsync.sh 
+
+
+#!/bin/bash
+
+#rsync -avzhe 'ssh -v -i insight.pem' sample.txt ubuntu@34.224.6.7:insight1/
+rsync -avzhe 'ssh'   /home/ubuntu/insight2/sample1.txt ubuntu@34.224.6.7:insight1/
+
+
+
+cat /home/ubuntu/dead.letter
+
+MAILTO="ujjinaiah@zelarsoft.com"
+*/1 * * * * /home/ubuntu/insight2/rsync.sh >> /home/ubuntu/insight2/rsync.log 2>&1
+
+
+
+
+
+
+
+
+
+ERR=0
+$RSYNC -az $INTHPATH --include='*log' --include='*old' --exclude='*' -e "$SSH" $RUSER@$RHOST:$INTRPATH  || ERR=1
+$RSYNC -az $IIXHPATH --include='*log' --include='*.old' --exclude='*' -e "$SSH" $RUSER@$RHOST:$IIXRPATH
+|| ERR=1
+$RSYNC -az $TTLHPATH --include='*log' --include='*.old' --exclude='*' -e "$SSH" $RUSER@$RHOST:$TTLRPATH || ERR=1
+if [ $ERR -eq 1 ] ; then
+   echo 'rsync failure' | /usr/bin/mailx -s 'rsync error me@mycompany.com
+fi
+

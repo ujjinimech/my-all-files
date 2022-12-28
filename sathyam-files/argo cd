@@ -1,0 +1,27 @@
+Download argocd cli:
+
+- wget https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+ - sudo mv argocd-linux-amd64 /usr/local/bin/argocd
+ - chmod +x /usr/local/bin/argocd
+ - argocd --help
+ 
+ 
+Login:
+argocd login server id
+
+
+argocd app create argocd-app --repo https://charts.bitnami.com/bitnami --helm-chart nginx --revision 9.7.5 --dest-namespace default --dest-server https://kubernetes.default.svc 
+
+
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
+
+
+
+
+curl -sLO https://github.com/argoproj/argo-workflows/releases/download/v3.2.8/argo-linux-amd64.gz
+gunzip argo-linux-amd64.gz
+chmod +x argo-linux-amd64
+mv ./argo-linux-amd64 /usr/local/bin/argo
+argo version
+

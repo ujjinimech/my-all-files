@@ -1,0 +1,64 @@
+mkdir gitops_basic
+ 1369  cd gitops_basic/
+ 1370  mkdir production staging
+ 1371  cd production/
+ 1372  cd ..
+ 1373  git init
+ 1374  cd production/
+ 1375  curl -sL "https://go.knts.app/link/VP25oTPykCzAMotd8" -o $(pwd)/kluster.yaml
+ 1376  export KUBECONFIG=$(pwd)/kluster.yaml
+ 1377  kubectl get nodes
+ 1378  ls
+ 1379  kubectl get pods
+ 1380  kubectl describe pod nginx-54959896fd-8n87d
+ 1381  kubectl get svc
+ 1382  cd ..
+ 1383  cd staging/
+ 1384  curl -sL "https://go.knts.app/link/sA57SRH7yuefZ4PbA" -o $(pwd)/kluster.yaml
+ 1385  export KUBECONFIG=$(pwd)/kluster.yaml
+ 1386  kubectl get nodes
+ 1387  cd ..
+ 1388  cd production/
+ 1389  helm delete nginx
+ 1390  helm create nginx
+ 1391  helm install nginx bitnami/nginx
+ 1392  kubectl get pods
+ 1393  kubectl get svc
+ 1394  cd ..
+ 1395  cd staging/
+ 1396  helm delete nginx
+ 1397  helm create nginx
+ 1398  helm install nginx bitnami/nginx
+ 1399  kubectl get pods
+ 1400  kubectl get svc
+ 1401  cd ..
+ 1402  ls -a
+ 1403  git status
+ 1404  gh repo create GitOps --public
+ 1405  git add .
+ 1406  git commit -m "helm"
+ 1407  git push -u origin main
+ 1408  git branch -M main
+ 1409  git push -u origin main
+ 1410  git remote add origin https://github.com/sathyap0104/GitOps.git
+ 1411  git push -u origin main
+ 1412  flux check --pre
+ 1413  echo $GITHUB_TOKEN
+ 1414  echo $GITHUB_USER
+ 1415  export GITHUB_TOKEN=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
+ 1416* 
+ 1417  export GITHUB_USER=sathyap0104
+ 1418  export GITHUB_REPO=GitOps
+ 1419  echo $GITHUB_USER
+ 1420  flux bootstrap github     --owner=${GITHUB_USER}     --repository=${GITHUB_REPO}     --branch=helm     --read-write-key=true     --private=false     --path=./     --personal
+ 1421  git branch
+ 1422  git branch -a
+ 1423  git branch delete helm
+ 1424  git branch delete remotes/origin/main
+ 1425  flux bootstrap github     --owner=${GITHUB_USER}     --repository=${GITHUB_REPO}     --branch=main     --read-write-key=true     --private=false     --path=./     --personal
+ 1426  git status
+ 1427  ls
+ 1428  flux check --pre
+ 1429  flux bootstrap github     --owner=${GITHUB_USER}     --repository=${GITHUB_REPO}     --branch=main     --read-write-key=true     --private=false     --path=./     --personal
+ 1430  flux bootstrap github     --owner=${GITHUB_USER}     --repository=${GITHUB_REPO}     --branch=main     --read-write-key=true     --private=false     --path=./flux     --personal
+

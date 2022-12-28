@@ -1,0 +1,36 @@
+- First fork the node js project 
+- Build a docker image of that node.js project using kaniko
+- Push that image to Docker hub
+- Create a helm chart for that image to deploy into cluster in the same forked repository
+- Now through the Application set deploy them to multiple clusters
+
+
+export REGISTRY_SERVER=https://index.docker.io/v1/
+export REGISTRY_USER=ujjinimech
+export REGISTRY_PASS=ujji310@
+export REGISTRY_EMAIL=charanladdu015@gmail.com
+
+kubectl create secret docker-registry regcred --docker-server=$REGISTRY_SERVER --docker-username=$REGISTRY_USER --docker-password=$REGISTRY_PASS --docker-email=$REGISTRY_EMAIL -n argo
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kaniko
+spec:
+  containers:
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:latest
+    args: ["--context=git://github.com/sathyap0104/nodejs-welcome",
+            "--destination=sathyap04/kaniko"] 
+    volumeMounts:
+      - name: kaniko-secret
+        mountPath: /kaniko/.docker
+  restartPolicy: Never
+  volumes:
+    - name: kaniko-secret
+      secret:
+        secretName: regcred
+        items:
+          - key: .dockerconfigjson
+            path: config.json

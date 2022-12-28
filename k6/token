@@ -1,0 +1,26 @@
+home/ujji/snap/k6/23/.config/loadimpact/k6/config.json
+
+
+ stages: [
+    { duration: '1m', target: 15 }, // simulate ramp-up of traffic from 1 to 100 users over 5 minutes.
+    { duration: '100s', target: 15 }, // stay at 100 users for 10 minutes
+    { duration: '30s', target: 1 }, // ramp-down to 0 users
+  ],
+
+  import http from 'k6/http';
+  import { sleep } from 'k6';
+  export const options = {
+    vus: 10,
+    duration: '30s',	
+    ext: {
+      loadimpact: {
+        projectID: 3587991,
+        // Test runs with the same name groups test runs together
+        name: "sqd-api"
+      }
+    }
+  };
+  export default function () {
+    http.get('http://sqyards-fe.34.80.150.150.nip.io/');
+  }
+  

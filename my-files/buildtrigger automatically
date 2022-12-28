@@ -1,0 +1,21 @@
+http://54.152.202.100:8080/job/build/build?token=mytoken
+
+
+
+ujjitoken
+         ujji:11c3865a6783eac1fcc497b3178cf6cf35
+         
+         
+crumb
+     
+     wget -q --auth-no-challenge --user username --password password --output-document -
+'http://JENNKINS_IP:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
+
+
+wget -q --auth-no-challenge --user admin --password admin123 --output-document - 'http://18.204.217.121:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
+Jenkins-Crumb:59fc9caff966241561697fc0500046761d9f9c7a0def551e49fddd2b0146624e
+
+
+
+
+curl -I -X POST http://admin:11c3865a6783eac1fcc497b3178cf6cf35@54.152.202.100:8080/job/build/build?token=mytoken -H "Jenkins-Crumb:59fc9caff966241561697fc0500046761d9f9c7a0def551e49fddd2b0146624e"

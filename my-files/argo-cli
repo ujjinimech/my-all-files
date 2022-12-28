@@ -1,0 +1,7 @@
+https://github.com/ujjinimech/ARGO.git
+
+
+argocd app create argo-app --repo https://github.com/ujjinimech/ARGO.git --path nginx --dest-namespace default --dest-server https://kubernetes.default.svc --directory-recurse
+
+
+argocd app create argo-app --repo https://github.com/ujjinimech/secret-repo-templete.git --path apps/base/nginx --dest-namespace default --dest-server https://kubernetes.default.svc --directory-recurse

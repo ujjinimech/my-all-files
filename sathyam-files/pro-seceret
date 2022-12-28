@@ -1,0 +1,32 @@
+1->install kubeseal 
+2->helm release file 
+3->kus
+4 publick key
+5 secrect 
+6 
+
+wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.16.0/kubeseal-linux-amd64 -O kubeseal
+sudo install -m 755 kubeseal /usr/local/bin/kubeseal
+
+$ curl http://127.0.0.1:8001/api/v/namespaces/default/services/http:sealed-secrets:8080/proxy/v1/cert.pem
+
+kubectl -n default create secret generic basic-auth \
+--from-literal=user=postgres \
+--from-literal=password="" \
+--dry-run=client \
+-o yaml > basic-auth.yaml
+
+
+env:
+   - name: POSTGRESQL_USERNAME
+     valueFrom:
+        secretKeyRef:
+           name: basic-auth
+           key: user
+   - name: POSTGRESQL_PASSWORD
+     valueFrom:
+        secretKeyRef:
+           name: basic-auth
+           key: password
+###
+

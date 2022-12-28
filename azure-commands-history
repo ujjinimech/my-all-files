@@ -1,0 +1,250 @@
+  mkdir quickstart && cd quickstart
+ 1915  pulumi new azure-yaml
+ 1916  ls
+ 1917  pulumi new azure-yaml
+ 1918  ls
+ 1919  pulumi up
+ 1920  az account list-locations --output table
+ 1921  pulumi config set azure-native:westUS
+ 1922  pulumi config set azure-native:location eastus
+ 1923  ls
+ 1924  cat Pulumi.dev.yaml 
+ 1925  cat Pulumi.yaml 
+ 1926  pulumi config set azure-native:West US
+ 1927  cat Pulumi.yaml 
+ 1928  cat Pulumi.dev.yaml 
+ 1929  pulumi new azure-yaml
+ 1930  ls
+ 1931  pulumi stack output kubeconfig --show-secrets > kubeconfig.yaml
+ 1932  pulumi up
+ 1933  pulumi config set azure-native:location Central India
+ 1934  pulumi config set azure-native:location CentralIndia
+ 1935  pulumi up
+ 1936  git clone git@github.com:pulumi/examples.git
+ 1937  ls
+ 1938  cd examples/
+ 1939  ls
+ 1940  cd azure-ts-aks
+ 1941  ls
+ 1942  npm install
+ 1943  sudo apt install npm
+ 1944  pulumi stack init
+ 1945  pulumi up
+ 1946  npm install
+ 1947  pulumi up
+ 1948  code .
+ 1949  cd ..
+ 1950  cd azure-cs-aks
+ 1951  ls
+ 1952  npm install
+ 1953  pulumi up
+ 1954  sudo apt update
+ 1955  curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+ 1956  sudo apt-get update && sudo apt-get install yarn
+ 1957  sudo apt -y install nodejs
+ 1958  node  -v
+ 1959  pulumi config set azure-native:location westus2
+ 1960  pulumi up
+ 1961  pulumi stack init azure
+ 1962  pulumi up
+ 1963  npm install
+ 1964  pulumi up
+ 1965  $PATH
+ 1966  cd ../..
+ 1967  ls
+ 1968  $PATH
+ 1969  echo $PATH
+ 1970  wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+ 1971  sudo dpkg -i packages-microsoft-prod.deb
+ 1972  rm packages-microsoft-prod.deb
+ 1973  sudo apt-get update &&   sudo apt-get install -y dotnet-sdk-6.0
+ 1974  git clone git@github.com:pulumi/kubernetes-guides.git
+ 1975  cd kubernetes-guides/
+ 1976  ls
+ 1977  cd azure/
+ 1978  ls
+ 1979  cd 03-cluster-configuration/
+ 1980  ls
+ 1981  npm install
+ 1982  pulumi stack ls
+ 1983  pulumi stack init
+ 1984  pulumi stack ls
+ 1985  pulumi config set azure:location centarIndia
+ 1986  pulumi config set k8s-az-cluster:identityStackRef metral/k8s-az-identity/azure
+ 1987  pulumi config set k8s-az-cluster:infraStackRef metral/k8s-az-infra/azure
+ 1988  pulumi up
+ 1989  ls
+ 1990  code .
+ 1991  pulumi up
+ 1992  az list 
+ 1993  az group list 
+ 1994  cd
+ 1995  cd quickstart/
+ 1996  ls
+ 1997  cd kubernetes-guides/
+ 1998  ls
+ 1999  cd azure/
+ 2000  ls
+ 2001  cd 03-cluster-configuration/
+ 2002  ls
+ 2003  cat Pulumi.yaml 
+ 2004  cd
+ 2005  k get nodes
+ 2006  mkdir pulumi-project && cd pulumi-project
+ 2007  pulumi new pulumi-project
+ 2008  pulumi
+ 2009  pulumi new pulumi-project
+ 2010  az aks get-credentials --resource-group aks9596062c --name aksCluster-east-19865726
+ 2011  k get nodes
+ 2012  pulumi new azure-yaml
+ 2013  ls
+ 2014  cd classic-azure-ts-aks-multicluster/
+ 2015  ls
+ 2016  code .
+ 2017  pulumi up
+ 2018  k get nodes
+ 2019  az aks get-credentials --resource-group aks9596062c --name aksCluster-east-19865726
+ 2020  k get nodes
+ 2021  pulumi destroy
+ 2022  pulumi up
+ 2023  history
+ 2024  k get nodes
+ 2025  k get po -A
+ 2026  pulumi destroy
+ 2027  pulumi up
+ 2028  cd ..
+ 2029  ls
+ 2030  history
+ 
+ ####################################################################################################################
+ ##################################################################################################################
+  1876  ls
+ 1877  git clone https://github.com/project-sunbird/sunbird-devops -b release-5.0.0
+ 1878  sudo apt install software-properties-common
+ 1879  sudo add-apt-repository --yes --update ppa:ansible/ansible
+ 1880  echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+ 1881  sudo add-apt-repository --yes --update ppa:ansible/ansible
+ 1882  sudo apt install ansible
+ 1883  ansible --version
+ 1884  cd
+ 1885  ansible --version
+ 1886  ls
+ 1887  cd openshift/
+ 1888  ls
+ 1889  cd
+ 1890  sudo apt install ansible
+ 1891  sudo apt update
+ 1892  ansible --version
+ 1893  sudo apt remove ansible
+ 1894  ansible --version
+ 1895  sudo apt update
+ 1896  sudo apt update -y
+ 1897  apt list --upgradable
+ 1898  apt list --upgradable -a
+ 1899  apt list --upgradable virtualbox-6.1/unknown
+ 1900  apt list --upgradable virtualbox-6.1/unknown 6.1.36-152435~Ubuntu~jammy amd64 [upgradable from: 6.1.36-152435~Ubuntu~focal]
+ 1901  sudo apt --upgradable virtualbox-6.1/unknown 6.1.36-152435~Ubuntu~jammy amd64 [upgradable from: 6.1.36-152435~Ubuntu~focal]
+ 1902  sudo apt --upgrade virtualbox-6.1/unknown 6.1.36-152435~Ubuntu~jammy amd64 [upgradable from: 6.1.36-152435~Ubuntu~focal]
+ 1903  sudo apt --upgrade virtualbox-6.1
+ 1904  sudo apt --upgrade virtualbox
+ 1905  sudo apt upgrade virtualbox
+ 1906  sudo apt upgrade virtualbox-6.1/unknown 6.1.36-152435~Ubuntu~jammy amd64 [upgradable from: 6.1.36-152435~Ubuntu~focal]
+ 1907  sudo apt upgrade virtualbox-6.1/ 6.1.36-152435~Ubuntu~jammy amd64 [upgradable from: 6.1.36-152435~Ubuntu~focal]
+ 1908  sudo apt upgrade virtualbox-6.1/6.1.36-152435~Ubuntu~jammy amd64 [upgradable from: 6.1.36-152435~Ubuntu~focal]
+ 1909  sudo apt upgrade virtualbox-6.1
+ 1910  which vagrant
+ 1911  cd /usr/bin/
+ 1912  ls
+ 1913  cat vagrant
+ 1914  cd
+ 1915  rm /usr/bin/vagrant
+ 1916  sudo rm /usr/bin/vagrant
+ 1917  which vagrant
+ 1918  sudo apt update -y
+ 1919  sudo apt install vagrant
+ 1920  sudo apt autoremove
+ 1921  sudo apt update
+ 1922  sudo apt install software-properties-common -y
+ 1923  sudo add-apt-repository --yes --update ppa:ansible/ansible
+ 1924  sudo apt install ansible -y
+ 1925  ansible --version
+ 1926  which ansible
+ 1927  sudo apt remove ansible
+ 1928  which ansible
+ 1929  sudo apt remove ansible
+ 1930  sudo apt install ansible -y
+ 1931  sudo reboot
+ 1932  ansible --version
+ 1933  apt list | grep python3.9
+ 1934  sudo apt-get install python3.9
+ 1935  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+ 1936  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 2
+ 1937  sudo update-alternatives --config python3
+ 1938  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+ 1939  python3 -V
+ 1940  cd openshift/
+ 1941  cd sunbird-devops/
+ 1942  d deploy/
+ 1943  cd deploy/
+ 1944  ls
+ 1945  ansible-playbook -c local azure-provision.yaml
+ 1946  code .
+ 1947  ssh-keygn
+ 1948  ssh-keygen
+ 1949  ansible-playbook -c local azure-provision.yaml
+ 1950  ansible --version
+ 1951  ansible-playbook -c local azure-provision.yaml
+ 1952  ansible-playbook -c local azure-provision.yaml -vvv
+ 1953  ansible-galaxy collection install community.azure
+ 1954  ansible-galaxy collection install community.azure --force
+ 1955  python --version
+ 1956  python -v
+ 1957  python -V
+ 1958  python version
+ 1959  python
+ 1960  python -V
+ 1961  python3 -V
+ 1962  ansible --version
+ 1963  pip3
+ 1964  python -V
+ 1965  ansible-playbook -c local azure-provision.yaml
+ 1966  ansible-playbook -c local azure-provision.yaml -vvv
+ 1967  pip3 --version
+ 1968  pip3 install packaging
+ 1969  pip install packaging
+ 1970  pip3 install packaging
+ 1971  ansible-playbook -c local azure-provision.yaml -vvv
+ 1972  pip3 install msrest
+ 1973  ansible-playbook -c local azure-provision.yaml -vvv
+ 1974  pip3 install msrestazure
+ 1975  ansible-playbook -c local azure-provision.yaml -vvv
+ 1976  pip3 install azure.cli
+ 1977  ls
+ 1978  cat install-deps.sh 
+ 1979  grep -nr "install" .
+ 1980  grep -nr "pip install" .
+ 1981  grep -nr "pip3 install" .
+ 1982  ansible-playbook -c local azure-provision.yaml -vvv
+ 1983  sudo pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
+
+##############################################################################################################################################
+Slave configuration history
+####################################################################################################################################
+
+   1  ls
+    2  ssh-keygen
+    3  ls ~/.ssh/
+    4  cd ~/.ssh/
+    5  cat id_rsa.pub > authorized_keys 
+    6  cat authorized_keys 
+    7  cat id_rsa
+    8  cd
+    9  java
+   10  sudo apt install openjdk-11-jre-headless
+   11  pwd
+   12  mkdir azure-slave-dir
+   13  ls
+   14  cd azure-slave-dir/
+   15  pwd
+   16  history
+

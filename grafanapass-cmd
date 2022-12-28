@@ -1,0 +1,88 @@
+kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+
+
+
+label_values(kubernetes_io_hostname)
+
+##################################################################################################################################
+
+loki-dashboard 15141 
+
+vm-monitoring --> 15054,1860
+
+pods-dasboards >> 15175,14835,14651
+
+website-monitoring >> 7587
+
+###########################################################################################################################################3#
+
+sum (rate (container_cpu_usage_seconds_total{id="/",kubernetes_io_hostname=~"^$Node$"}[$interval])) / sum (machine_cpu_cores{kubernetes_io_hostname=~"^$Node$"}) * 100
+
+
+sum (rate (container_cpu_usage_seconds_total{id="/",kubernetes_io_hostname=~"^$Node$"}[30m]))
+
+sum (rate (container_cpu_usage_seconds_total{id="/",kubernetes_io_hostname=~"^$Node$"}[30m])) / sum (machine_cpu_cores{kubernetes_io_hostname=~"^$Node$"}) * 100
+
+sum (rate (container_cpu_usage_seconds_total{id="/",kubernetes_io_hostname=~"^$Node$"}[30m])) / sum (machine_cpu_cores{kubernetes_io_hostname=~"^$Node$"}) * 100
+
+#########################################################################################################################################3
+
+
+grafana-alerts --> https://grafana.com/go/webinar/intro-to-unified-alerting-in-grafana/
+
+
+Grafana being an open source solution also enables us to write plugins from scratch for integration with several different data sources.
+
+loki-connection-with-thanos --> https://community.grafana.com/t/setup-loki-receiver-with-thanos/56035/4
+
+
+
+{job="VM2"}
+
+
+linux-host --> 10180
+
+
+
+https://hooks.slack.com/services/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
+
+
+xoxe.xoxp-1-Mi0yLTQ0MDAxNDE3MjgyMC0yOTI0MTgwMjMxNDA4LTM4MTkxMTQwODg0MjAtMzgzMjQ3MjMyMzQ0NC1iMTIxNTY5NjE2MGYzNzE0NDc1NzZjMDE1YjI4YWE2MjRmMzI2ZWZlN2YzOTBhNzA0NzRjYWM0ZDlmYjMzNGQy
+
+
+######################################################################################################################################
+
+
+- job_name: "prometheus"
+  - job_name: 'VM-3'
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+      - targets: ["localhost:9090"]
+      - targets: ['localhost:9100']
+
+
+
+sum (container_fs_usage_bytes{id=\"/\"}) / sum (container_fs_limit_bytes{id=\"/\"}) * 100",
+
+
+
+
+##############################################################################################################################################
+kubernetes-monitoring labels
+
+Variable	Definition	
+
+cluster         label_values(kube_pod_info, cluster)		
+
+
+Node           label_values(kube_node_info{cluster="$cluster"}, node)		
+
+##########################################################################################################################################
+
+https://stackoverflow.com/questions/71170814/how-to-create-alerts-in-grafana-based-on-loki-logs?rq=1
+
+
+
+

@@ -1,0 +1,75 @@
+
+
+##################################################################################################################################
+
+
+To update your existing installation with an increased max-pods, add a kubelet config file into a k3s associated location such as 
+
+
+vim /etc/rancher/k3s-kubeconfig.yaml
+
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+maxPods: 500
+
+
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--kubelet-arg=config=/etc/rancher/k3s-kubeconfig.yaml --kube-controller-manager-arg=node-cidr-mask-size=16" sh -
+
+#################################################################################################################################
+
+
+
+To update your existing installation with an increased max-pods, add a kubelet config file into a k3s associated location such as /etc/rancher/k3s/kubelet.config:
+
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+maxPods: 500
+
+
+####edit /etc/systemd/system/k3s.service to change the k3s server args###
+
+ExecStart=/usr/local/bin/k3s \
+    server \
+        '--disable' \
+        'servicelb' \
+        '--disable' \
+        'traefik' \
+        '--kubelet-arg=config=/etc/rancher/k3s/kubelet.config'
+
+sudo systemctl daemon-reload
+
+sudo systemctl restart k3s
+
+kubectl describe <node>
+
+
+POD_CIDR=10.42.0.0/16
+SERVICE_CIDR=10.43.0.0/16
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--cluster-cidr $POD_CIDR --service-cidr $SERVICE_CIDR" sh -s -
+
+
+
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--cluster-cidr 10.43.0.0/16" | sh -
+
+
+
+
+/usr/local/bin/k3s server --cluster-cidr=192.168.0.0/16 --no-flannel --no-deploy=traefik
+
+. Is there an option to alse customize
+
+sudo /usr/local/bin/k3s server --service-cidr 10.43.0.0/16 --no-flannel --no-deploy=traefik
+
+
+curl -sfL https://get.k3s.io | sudo k3s server /tmp/kubectl-edit-191747950.yaml | sh -
+
+
+
+sudo cp /etc/rancher/k3s/k3s.yaml kubeconfig.cluster-a
+sudo chown $(id -u):$(id -g) kubeconfig.cluster-a
+export IP=$(hostname -I | awk '{print $1}') yq -i eval \ '.clusters[].cluster.server |= sub("127.0.0.1", env(IP)) | .contexts[].name = "cluster-a" | .current-context = "cluster-a"' \ kubeconfig.cluster-a
+
+
+
+
+

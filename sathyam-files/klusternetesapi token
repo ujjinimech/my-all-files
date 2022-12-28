@@ -1,0 +1,84 @@
+knts.431bad9cb21704a5c84efd3cb0a2e486
+
+sathyap@bunny
+65.21.149.201
+jP36IbiD91UpjX9y
+2IDd0il0ZhIYhEg9
+
+kubectl patch secret argocd-secret  -p '{"data": {"admin.password": null, "admin.passwordMtime": null}}'
+git:
+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
+
+curl -sfL https://get.k3s.io | sh -
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+sudo chmod 644 $KUBECONFIG
+
+
+kubectl config use-context k3d-c1
+
+kubectl port-forward svc/nginx 8090:80 -n flux-system
+
+git config --global credential.helper 'cache --timeout=1800'
+flux bootstrap github \
+    --owner=sathyap0104 \
+    --repository=postgres \
+    --branch=main \
+    --path=cluster/c1 \
+    --personal=true
+    
+flux create source git nginx \
+  --url=https://github.com/sathyap0104/GitOps.git \
+  --branch=main \
+  --interval=30s \
+  --export \
+  | tee apps/staging/source.yaml 
+  
+  
+  flux create kustomization nginx \
+  --source=nginx \
+  --path="app/staging" \
+  --prune=true \
+  --interval=30s \
+  --export \
+  | tee apps/staging/kustomization.yaml
+  
+  
+  flux create source helm bitnami \
+  --interval=30s \
+  --url=https://charts.bitnami.com/bitnami \
+  --export \
+  | tee apps/staging/nginx-source.yaml
+  
+  flux create helmrelease nginx \
+  --interval=1m \
+  --release-name=nginx \
+  --source=HelmRepository/bitnami \
+  --chart=nginx \
+  --export \
+  | tee apps/base/nginx/release.yaml
+  
+  flux create helmrelease nginx \
+  --release-name=nginx \
+  --source=HelmRepository/bitnami \
+  --chart=nginx \
+  --chart-version=">9.6.2-alpha" \
+  --export \
+  | tee apps/staging/nginx-values.yaml
+  
+  --release-name=nginx \
+  48D6-4FAA
+  
+  flux create helmrelease nginx   \
+--release-name=nginx   \
+--source=HelmRepository/bitnami   \
+--chart=nginx \
+--chart-version=">9.6.2" \
+--export   | tee apps/staging/nginx-values.yaml
+  
+  flux create kustomization nginx \
+  --target-namespace=default \
+  --source=podinfo \
+  --path="./kustomize" \
+  --prune=true \
+  --interval=30s \
+  --export > ./clusters/my-cluster/podinfo-kustomization.yaml

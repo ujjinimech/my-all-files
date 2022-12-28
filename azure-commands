@@ -1,0 +1,91 @@
+
+az group create \
+    --name my-group-1 \
+    --location centralindia
+    
+az network vnet create \
+    --resource-group my-cluster-rg \
+    --name myVnet \
+    --address-prefixes 10.0.0.0/8 \
+    --subnet-name myAKSSubnet \
+    --subnet-prefix 10.240.0.0/16
+    
+az network vnet subnet create \
+    --resource-group my-cluster-rg \
+    --vnet-name myVnet \
+    --name myVirtualNodeSubnet \
+    --address-prefixes 10.241.0.0/16
+    
+az network vnet subnet show --resource-group my-cluster-rg --vnet-name myVnet --name myAKSSubnet --query id -o tsv
+
+
+az aks create \
+    --resource-group my-group-1 \
+    --name myAKSCluster-1 \
+    --node-count 4 \
+    --network-plugin azure \
+    --vnet-subnet-id /subscriptions/bbd93be7-9e33-4812-adb9-121023e27d4f/resourceGroups/my-cluster-rg/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/myAKSSubnet
+    
+    
+az aks enable-addons \
+    --resource-group my-cluster-rg \
+    --name myAKSCluster \
+    --addons virtual-node \
+    --subnet-name myVirtualNodeSubnet
+    
+az aks get-credentials --resource-group my-cluster-rg --name myAKSCluster
+
+
+
+
+ujjinaiah_zelarsoft.com#EXT#@lakshmojizelarsoft.onmicrosoft.com
+
+############################################################################
+Pub-container
+
+az storage blob upload-batch --destination sunbird_content_azure_storage_container/collection-editor --source collection-editor --account-name storage_account_name --account-key storage_account_key
+
+az storage blob upload-batch --destination sunbird_content_azure_storage_container/generic-editor --source generic-editor --account-name storage_account_name --account-key storage_account_key
+
+az storage blob upload-batch --destination sunbird_content_azure_storage_container/content-editor --source content-editor --account-name storage_account_name --account-key storage_account_key
+
+az storage blob upload-batch --destination sunbird_content_azure_storage_container/v3/preview --source preview --account-name storage_account_name --account-key storage_account_key
+
+##############################################################################
+Private-container
+
+cd sunbird-devops/utils/portal
+
+az storage blob upload-batch --destination label --source labels --account-name storage_account_name --account-key storage_account_key
+
+
+#############################################################################
+export storage_account_name=davidgp39
+export sunbird_content_azure_storage_container=david-container
+export storage_account_key=xv0MEtde3lpdwCVimIKXRX3DUWgzpYiUooCE7bGVHEgku6zQC5H2aQeNwg4Gkwx/mQLxU4OpQlm4+AStYsmU0g==
+
+#####################################################################################################
+pulumi config set password ujji && pulumi config set location eastUS && pulumi config set nodeCount 3 && pulumi config set nodeSize Standard DS2_v2 && pulumi config set sshPublicKey ~/.ssh/id_rsa.pub
+
+
+
+mkdir pulumi-project && cd pulumi-project
+pulumi new pulumi-project
+
+
+
+
+pulumi config set azure:environment public
+pulumi config set password --secret <your password>
+pulumi config set sshPublicKey < ~/.ssh/id_rsa.pub
+
+
+########################################################################################################################
+
+Account ID
+757435
+License key
+QpAlXxuFPHgGKuUS 
+
+mongosh admin -u myroot -p my-super-secret-password
+

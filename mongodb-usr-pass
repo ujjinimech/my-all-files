@@ -1,0 +1,31 @@
+username: mymongo1
+password: mymongo
+
+
+mongo "mongodb+srv://my-mongo-1.c7bdfzc.mongodb.net/my-mongo-1" --username mymongo1
+
+
+
+
+
+
+########################################################################################
+@@@@@ mongo-server expose in local @@@@@
+
+docker ps
+ 2020  docker stop somg-mongo
+ 2021  docker stop some-mongo
+ 2022  docker run -p 27017:27017 --name some-mongo -d mongo:latest
+ 2023  docker rm /some-mongo
+ 2024  docker run -p 27017:27017 --name some-mongo -d mongo:latest
+ 2025  docker rm /some-mongo
+ 2026  sudo systemctl stop mongo
+ 2027  sudo systemctl stop mongodb.service 
+ 2028  docker run -p 27017:27017 --name some-mongo -d mongo:latest
+ 2029  docker ps
+ 2030  npm run demo_create_mongo_db.js 
+ 2031  npm start
+ 2032  node demo_create_mongo_db.js 
+##########################################################################################
+
+
